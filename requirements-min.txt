@@ -1,0 +1,12 @@
+# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+numpy
+keras
+tensorflow
+scikit-learn
+matplotlib
+torchsummary
+tqdm
+pandas
+
+lxml==5.2.1
+pattern

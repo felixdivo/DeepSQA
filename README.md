@@ -22,7 +22,7 @@ mkdir sqa_data trained_models result source_dataset
 ## Files description:
 
 -  __source_dataset:__ 
-	- __opportunity:__ put raw sensory data "OPPORTUNITY" here.
+	- __opportunity:__ put [raw sensory data "OPPORTUNITY"](https://archive.ics.uci.edu/static/public/226/opportunity+activity+recognition.zip) here.
 -  __sqa_data_gen:__ 
 	- __question_family.ipynb:__ specifies all the question family templates used in generation
 	- __question_family.json:__ stores the question family info in a json file.
@@ -38,11 +38,11 @@ mkdir sqa_data trained_models result source_dataset
 -  __preprocess_data:__ 
 	- create folders: ``mkdir embeddings glove``
 	- __embeddings:__ folder storing embedding matrix and word index
-	- __glove:__ folder storing pretrained glove pre-trained word vectors. Downloaded from [here](https://nlp.stanford.edu/projects/glove/). (glove.6B.zip)
+	- __glove:__ folder storing pretrained glove pre-trained word vectors. Downloaded from [here](https://nlp.stanford.edu/projects/glove/). ([glove.6B.zip](https://nlp.stanford.edu/data/glove.6B.zip))
 	- __embedding.py:__  create embedding matrix
 	- __prepare_data.py:__ get sensory, question, and answer data in matrix form
 	- __preprocessing.py:__ main function for converting a SQA dataset in json into processed .npz format.
-	
+
 -  __sqa_models:__ 
 	- __mac_model:__ codes for DeepSQA-CA model (mac)
 	- __baselines.py:__ codes for all other baseline models (prior, prior_q, SAN, conv-lstm, etc)
