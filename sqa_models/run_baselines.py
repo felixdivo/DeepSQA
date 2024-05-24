@@ -303,7 +303,7 @@ def train_baseline(embedding_matrix, num_words, embedding_dim,  seq_length,
 
         
     ############## training ##############   
-    save_path = model_save_folder+ model_name+'.hdf5'
+    save_path = model_save_folder+ model_name+'.keras'
     # es = EarlyStopping(monitor='val_MAE', mode='min', verbose=1, patience=20)
     mc = ModelCheckpoint(save_path, monitor='val_accuracy', mode='max', verbose=1, save_best_only=True)
 
@@ -375,7 +375,7 @@ def get_model_result(model_save_folder, data_s, data_q, data_a, test_batch_size 
     
     for idx, model_i in enumerate(model_list):
         
-        save_path_i = model_save_folder + model_i+'.hdf5'
+        save_path_i = model_save_folder + model_i+'.keras'
 
         ans_i = get_testing_ans(model_i, save_path_i,
                            data_s, data_q, data_a,

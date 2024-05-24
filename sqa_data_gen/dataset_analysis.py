@@ -320,7 +320,7 @@ class sqa_dataset():
         for struct_i in all_question_struct[0:topk]:
             struct_i_data = pd_data_classify[pd_data_classify['question_structure']==struct_i]['answer'].value_counts() 
             print('\n',struct_i)
-            print(tabulate([struct_i_data], headers=struct_i_data.index, tablefmt='orgtbl'))
+            # print(tabulate([struct_i_data], headers=struct_i_data.index, tablefmt='orgtbl'))
         
         
         

@@ -11,7 +11,7 @@ import json
 from datetime import date
 from tqdm import tqdm
 
-from keras.models import load_model 
+from keras.models import load_model
 
 
 def sqa_gen_engine(file_list,
@@ -32,13 +32,13 @@ def sqa_gen_engine(file_list,
     """
     # loading pretrained source model to get primary events.
     if source_dataset == 'opp':
-        model_name = 'single_1'
-        save_path = save_model_folder+ 'opp_model/'+ model_name+'.hdf5'
-        trained_model_1 = load_model(save_path)
+        # model_name = 'single_1'
+        # save_path = save_model_folder+ 'opp_model/'+ model_name+'.keras'
+        trained_model_1 = load_model("trained_models/opp_model/single_1.keras")
 
-        model_name = 'single_2'
-        save_path = save_model_folder + 'opp_model/'+ model_name+'.hdf5'
-        trained_model_2 = load_model(save_path)
+        # model_name = 'single_2'
+        # save_path = save_model_folder + 'opp_model/'+ model_name+'.keras'
+        trained_model_2 = load_model("trained_models/opp_model/single_2.keras")
     elif source_dataset == 'es':
         model_name = 'naive_classifier'
         save_path = save_model_folder + 'es_model/'+ model_name+'.hdf5'

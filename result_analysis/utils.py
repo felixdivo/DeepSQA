@@ -2,7 +2,7 @@ train_x = [data_s_test, data_q_test ]
 # train_x = [data_q_valid]
 train_y = data_a_test
     
-trained_model_1 = load_model('616_baseline_models_s4/cnn_lstm_cat.hdf5')
+trained_model_1 = load_model('616_baseline_models_s4/cnn_lstm_cat.keras')
 # print('Model loaded: ', model_name)
 
 # evaluate saved model

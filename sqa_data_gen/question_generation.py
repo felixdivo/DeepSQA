@@ -7,6 +7,25 @@ from pattern import en
 from sqa_data_gen.function_catalog import *
 from sqa_data_gen.functional_program import *
 
+# See: https://github.com/clips/pattern/pull/294#issuecomment-617264317
+def patch_pattern():
+    from pattern import text
+    import functools
+
+    original_read = text._read
+
+    @functools.wraps(original_read)
+    def patched_read(*args, **kwargs):
+        try:
+            for r in original_read(*args, **kwargs):
+                yield r
+        except RuntimeError:
+            pass
+
+    text._read = patched_read
+
+patch_pattern()
+
 # Alternative approach: specify the tense (https://www.clips.uantwerpen.be/pages/pattern-en)
 def fixSentenceTense(question,actions,relations,combinators):
     

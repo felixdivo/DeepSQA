@@ -82,12 +82,15 @@ test_file_list = [
     "S4-Drill.dat",
 ]
 
-stride = 400
+stride = 600
 window_size = 1500
 
 save_file = "s1234_" + str(window_size) + "_" + str(stride)
 save_folder = "sqa_data"
 save_model_folder = "trained_models/"
+
+import nltk
+nltk.download("punkt")
 
 generated_data = sqa_gen_engine(
     test_file_list,
@@ -171,7 +174,7 @@ d_t.answer_distribution(topk=5)
 
 print(
     "The current data size: %d, taking memory %.2f GB. "
-    % (d_t.size, d_t.size * 1500 * 77 * 4 / 1024 / 1024 / 1024)
+    % (d_t.size, d_t.size * window_size * 77 * 4 / 1024 / 1024 / 1024)
 )
 
 # change the saving name here
@@ -183,14 +186,14 @@ d_t.data.to_pickle(pickle_path)
 print("Data saved: ", pickle_path)
 
 
-load_pd_data = pd.read_pickle("sqa_data/s1234_1800_600_balanced.pkl")
+load_pd_data = pd.read_pickle(f"sqa_data/s1234_{window_size}_{stride}_balanced.pkl")
 d_t = sqa_dataset(load_pd_data)
 print("Current datasize: ", d_t.size)
 print("Need to compress to %.4f of original size." % (200000 / d_t.size))
 print(np.sqrt((200000 / d_t.size)))
 
 
-pickle_path = save_folder + "/" + "s1234_1800_600_balanced_small" + ".pkl"
+pickle_path = save_folder + "/" + f"s1234_{window_size}_{stride}_balanced_small" + ".pkl"
 
 d_t.data.to_pickle(pickle_path)
 print("Data saved: ", pickle_path)
