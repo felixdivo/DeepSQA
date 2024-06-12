@@ -14,7 +14,7 @@
 				"GitHub.copilot",
 				"ms-toolsai.jupyter",
 				"ms-python.python",
-				"ms-python.black-formatter"
+				"charliermarsh.ruff"
 			]
 		}
 	},
