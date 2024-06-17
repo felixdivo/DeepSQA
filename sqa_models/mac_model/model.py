@@ -191,10 +191,10 @@ class SensoryNet(nn.Module):
         batch_size = x.size()[0]
         x = x.permute(0, 3, 1,2)
 
-        x = F.max_pool2d(F.relu(self.conv1(x)), (1, 2))
+        x = F.max_pool2d(F.relu(self.conv1(x)), (1, 2), padding=(0, 1))
         x = F.dropout(x, 0.5)
 
-        x = F.max_pool2d(F.relu(self.conv2(x)), (1,2))
+        x = F.max_pool2d(F.relu(self.conv2(x)), (1,2), padding=(0, 1))
         x = F.dropout(x, 0.5)
 
         x = x.permute(0, 3, 1, 2)
